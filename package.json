@@ -1,0 +1,35 @@
+{
+  "name": "sysi",
+  "version": "0.0.1",
+  "description": "a command line tool to display system information",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "command-line",
+    "commandline",
+    "cli"
+  ],
+  "author": "puf17640",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puf17640/sysi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/puf17640/sysi/issues"
+  },
+  "homepage": "https://github.com/puf17640/sysi#readme",
+  "devDependencies": {
+    "@aero/eslint-config": "^1.0.1",
+    "eslint": "7.5.0"
+  },
+  "dependencies": {
+    "chalk": "4.1.0",
+    "moment": "2.27.0",
+    "public-ip": "4.0.2",
+    "systeminformation": "4.26.10",
+    "text-table": "0.2.0"
+  }
+}
