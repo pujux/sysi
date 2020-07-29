@@ -2,7 +2,11 @@
 	"settings": {
 		"seperator": "-",
 		"suffix": ":",
-		"title": true
+		"title": true,
+		"titleColor": "red",
+		"primaryColor": "blue",
+		"secondaryColor": "green",
+		"tertiaryColor": "yellow"
 	},
 	"parts": [ 
 		{
@@ -11,43 +15,24 @@
 			"version": true
 		},
 		{
-			"name": "apps",
-			"enabled": true,
-			"list": [
-				"node",
-				"yarn",
-				"mongodb",
-				"python3",
-				"nginx"
-			]
-		},
-		{
 			"name": "cpu",
 			"enabled": true,
 			"cores": false,
 			"speed": false
 		},
 		{
-			"name": "publicIp",
-			"enabled": true
-		},
-		{
-			"name": "net",
-			"enabled": true
-		},
-		{
 			"name": "uptime",
 			"enabled": true
-		},
-		{
-			"name": "memory",
-			"enabled": true,
-			"percent": false
 		},
 		{
 			"name": "gpu",
 			"enabled": true,
 			"vram": true
+		},
+		{
+			"name": "memory",
+			"enabled": true,
+			"percent": false
 		},
 		{
 			"name": "display",
@@ -65,6 +50,14 @@
 		},
 		{
 			"name": "ping",
+			"enabled": true
+		},
+		{
+			"name": "publicIp",
+			"enabled": true
+		},
+		{
+			"name": "net",
 			"enabled": true
 		}
 	]

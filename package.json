@@ -4,7 +4,9 @@
   "description": "a command line tool to display system information",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "lint": "eslint index.js",
+    "lintf": "eslint index.js --fix"
   },
   "keywords": [
     "command-line",

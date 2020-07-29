@@ -111,22 +111,6 @@
 		],
 		"displays": [
 			{
-				"vendor": "",
-				"model": "Color LCD",
-				"main": true,
-				"builtin": false,
-				"connection": "Internal",
-				"sizex": -1,
-				"sizey": -1,
-				"pixeldepth": 24,
-				"resolutionx": 2560,
-				"resolutiony": 1600,
-				"currentResX": 2560,
-				"currentResY": 1600,
-				"positionX": 0,
-				"positionY": 0,
-				"currentRefreshRate": -1
-			}
 		]
 	},
 	"net": [
