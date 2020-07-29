@@ -96,7 +96,7 @@ const formatDuration = (duration) => {
 				if (!data) break;
 				return ['Net', data.filter(n => n.ip4).map(n => `${n.ip4} (${n.ifaceName})`).join(', ')];
 		}
-	}))).map(([a, b]) => [a && a !== 'seperator' ? a + settings.suffix : a, b]);
+	}))).filter(x => x).map(([a, b]) => [a && a !== 'seperator' ? a + settings.suffix : a, b]);
 
 	const { hostname } = await info.osInfo();
 	let text = `${hostname}\nseperator\n${table(lines)}`;
