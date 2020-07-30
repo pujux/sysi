@@ -3,22 +3,24 @@
 		"seperator": "-",
 		"suffix": ":",
 		"title": true,
-		"titleColor": "red",
-		"primaryColor": "blue",
-		"secondaryColor": "green",
-		"tertiaryColor": "yellow"
+		"titleColor": "#D2B198",
+		"primaryColor": "#D2B198",
+		"secondaryColor": "#D1BAAA",
+		"seperatorColor": "#D1BAAA",
+		"suffixColor": "#D2B198"
 	},
 	"parts": [ 
 		{
 			"name": "os",
 			"enabled": true,
-			"version": true
+			"version": true,
+			"arch": true
 		},
 		{
 			"name": "cpu",
 			"enabled": true,
-			"cores": false,
-			"speed": false
+			"cores": true,
+			"speed": true
 		},
 		{
 			"name": "uptime",
@@ -32,7 +34,7 @@
 		{
 			"name": "memory",
 			"enabled": true,
-			"percent": false
+			"percent": true
 		},
 		{
 			"name": "display",
