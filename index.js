@@ -167,9 +167,12 @@ const formatDuration = (duration) => {
 		a !== 'seperator' ? a + chalk.hex(settings.suffixColor)(settings.suffix) : a, 
 		chalk.hex(settings.secondaryColor)(b)
 	]);
-
-	const { osInfo: { hostname } } = await info.get({ osInfo: 'hostname' });
-	let text = `${chalk.hex(settings.titleColor)(hostname)}\nseperator\n${table(lines)}`;
+	let text = '';
+	if(settings.title) {
+		const { osInfo: { hostname } } = await info.get({ osInfo: 'hostname' });
+		text = `${chalk.hex(settings.titleColor)(hostname)}\nseperator\n`;
+	}
+	text += table(lines)
 	text = text.replace(/seperator/g, chalk.hex(settings.seperatorColor)(settings.seperator));
 	console.log(text);
 })();
