@@ -5,7 +5,7 @@
 
 <p align="center">
   <a href="./LICENSE.md"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
-  <a href="https://github.com/dylanaraps/neofetch/releases"><img src="https://img.shields.io/github/release/dylanaraps/neofetch.svg"></a>
+  <a href="https://github.com/puf17640/sysi/releases"><img src="https://img.shields.io/github/release/puf17640/sysi.svg"></a>
 </p>
 
 <h3 align="center">
