@@ -7,7 +7,8 @@
 		"primaryColor": "#D2B198",
 		"secondaryColor": "#D1BAAA",
 		"seperatorColor": "#D1BAAA",
-		"suffixColor": "#D2B198"
+		"suffixColor": "#D2B198",
+		"seperatorLength": 50
 	},
 	"parts": [ 
 		{
