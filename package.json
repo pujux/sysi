@@ -30,6 +30,7 @@
   "dependencies": {
     "chalk": "4.1.0",
     "moment": "2.27.0",
+    "osx-temperature-sensor": "1.0.7",
     "public-ip": "4.0.2",
     "systeminformation": "4.26.10",
     "text-table": "0.2.0"

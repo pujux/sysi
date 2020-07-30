@@ -7,6 +7,8 @@ const info = require('systeminformation'),
 const [,, configPath = './config.json'] = process.argv,
 	{ settings, parts } = require(configPath);
 
+settings.seperator = settings.seperator.repeat(settings.seperatorLength)
+
 const formatBytes = (bytes = 0, withGb) => {
 	const sizes = ['B', 'KB', 'MB', 'GB'];
 	const i = Math.min(parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10), sizes.length - (!withGb ? 2 : 1));
@@ -36,16 +38,16 @@ const formatDuration = (duration) => {
 				if (!data || !data.distro) break;
 				return [
 					chalk.hex(settings.primaryColor)('OS'),
-					`${data.distro}${args.version && data.release && `, ${data.release}`}${args.arch && args.arch && ` (${data.arch})`}`
+					`${data.distro}${args.version && data.release ? `, ${data.release}` : ''}${args.arch && data.arch ? ` (${data.arch})` : ''}`
 				];
 
 			case 'cpu':
 				if (!enabled) break;
-				data = await info.cpu();
+				data = { ...await info.cpu(), temp: (await info.cpuTemperature()).main };
 				if (!data || !data.manufacturer || !data.brand) break;
 				return [
 					chalk.hex(settings.primaryColor)('CPU'),
-					`${data.manufacturer} ${data.brand}${args.cores && data.physicalCores > 0 && ` (${data.physicalCores})`}${args.speed && args.speed > 0 && ` @ ${data.speed}GHz`}`
+					`${data.manufacturer} ${data.brand}${args.cores && data.physicalCores > 0 ? ` (${data.physicalCores})` : ''}${args.speed && data.speed > 0 ? ` @ ${data.speed}GHz` : ''}${args.temp && data.temp > 0 ? ` (${data.temp} °C)` : ''}`
 				];
 
 			case 'uptime':
@@ -63,7 +65,7 @@ const formatDuration = (duration) => {
 				if (!data || data.length === 0) break;
 				return [
 					chalk.hex(settings.primaryColor)('GPU'),
-					`${data.filter(con => con.model).map(con => `${con.model}${args.vram && args.vram > 0 && ` (${formatBytes(con.vram * 1024 ** 2, true)})`}`).join(', ')}`
+					`${data.filter(con => con.model).map(con => `${con.model}${args.vram && con.vram > 0 ? ` (${formatBytes(con.vram * 1024 ** 2, true)})` : ''}`).join(', ')}`
 				];
 
 			case 'memory':
@@ -72,7 +74,7 @@ const formatDuration = (duration) => {
 				if (!data || !data.active || data.active < 0 || !data.total || data.total < 0) break;
 				return [
 					chalk.hex(settings.primaryColor)('Memory'),
-					`${formatBytes(data.active)} / ${formatBytes(data.total)}${settings.percent && ` (${(data.active / data.total).toFixed(2) * 100} %)`}`
+					`${formatBytes(data.active)} / ${formatBytes(data.total)}${args.percent ? ` (${(data.active / data.total).toFixed(2) * 100} %)` : ''}`
 				];
 
 			case 'display':
@@ -99,7 +101,7 @@ const formatDuration = (duration) => {
 				if (!data || !data.percent || data.percent < 0) break;
 				return [
 					chalk.hex(settings.primaryColor)('Battery'),
-					`${data.percent} %${args.timeRemaining && ` (${data.ischarging ? 'charging' : moment.duration(data.timeremaining, 'minutes').humanize()})`}`
+					`${data.percent} %${args.timeRemaining ? ` (${data.ischarging ? 'charging' : formatDuration(moment.duration(data.timeremaining, 'minutes'))})` : ''}`
 				];
 
 			case 'ping':
@@ -126,14 +128,37 @@ const formatDuration = (duration) => {
 				if (!data || data.length === 0) break;
 				return [
 					chalk.hex(settings.primaryColor)('Net'),
-					data.filter(net => net.ip4 && net.ifaceName).map(net => `${net.ip4} (${net.ifaceName})`).join(', ')
+					data.filter(net => net.ip4 && net.ifaceName && (args.noLocal && net.ifaceName !== 'lo0' || !args.noLocal)).map(net => `${net.ip4} (${net.ifaceName})`).join(', ')
+				];
+
+			case 'shell':
+				if (!enabled) break;
+				data = await info.shell();
+				if (!data) break;
+				return [
+					chalk.hex(settings.primaryColor)('Shell'),
+					data
+				];
+
+			case 'users':
+				if (!enabled) break;
+				data = await info.users();
+				if (!data || data.length === 0) break;
+				return [
+					chalk.hex(settings.primaryColor)('Online'),
+					[...new Set(data.map(user => user.user).filter(user => user))].join(', ')
 				];
 		}
 		return undefined;
-	}))).filter(line => line).map(([a, b]) => [a !== 'seperator' ? a + chalk.hex(settings.suffixColor)(settings.suffix) : a, chalk.hex(settings.secondaryColor)(b)]);
+	})))
+	.filter(line => line)
+	.map(([a, b]) => [
+		a !== 'seperator' ? a + chalk.hex(settings.suffixColor)(settings.suffix) : a, 
+		chalk.hex(settings.secondaryColor)(b)
+	]);
 
 	const { osInfo: { hostname } } = await info.get({ osInfo: 'hostname' });
 	let text = `${chalk.hex(settings.titleColor)(hostname)}\nseperator\n${table(lines)}`;
-	text = text.replace(/seperator/g, chalk.hex(settings.seperatorColor)(settings.seperator.repeat(settings.seperatorLength)));
+	text = text.replace(/seperator/g, chalk.hex(settings.seperatorColor)(settings.seperator));
 	console.log(text);
 })();
