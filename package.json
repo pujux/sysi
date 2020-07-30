@@ -1,6 +1,6 @@
 {
   "name": "sysi",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "a command line tool to display system information",
   "main": "index.js",
   "scripts": {
@@ -13,6 +13,9 @@
     "commandline",
     "cli"
   ],
+  "bin": {
+    "sysi": "./index.js"
+  },
   "author": "puf17640",
   "license": "MIT",
   "repository": {

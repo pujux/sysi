@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const info = require('systeminformation'),
 	moment = require('moment'),
 	publicIp = require('public-ip'),
@@ -25,6 +26,7 @@ const formatDuration = (duration) => {
 };
 
 (async () => {
+
 	const lines = (await Promise.all(parts.map(async ({ name, enabled, ...args }) => {
 		let data;
 		switch (name) {
