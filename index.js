@@ -148,6 +148,15 @@ const formatDuration = (duration) => {
 					chalk.hex(settings.primaryColor)('Online'),
 					[...new Set(data.map(user => user.user).filter(user => user))].join(', ')
 				];
+
+			case 'cpuLoad':
+				if (!enabled) break;
+				data = await info.currentLoad();
+				if (!data || !data.currentload || data.currentload < 0) break;
+				return [
+					chalk.hex(settings.primaryColor)('CPU Load'),
+					`${data.currentload.toFixed(2)} %`
+				];
 		}
 		return undefined;
 	})))

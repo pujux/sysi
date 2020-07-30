@@ -72,6 +72,10 @@
 		{
 			"name": "users",
 			"enabled": true
+		},
+		{
+			"name": "cpuLoad",
+			"enabled": true
 		}
 	]
 }
