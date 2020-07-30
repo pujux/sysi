@@ -5,7 +5,7 @@ const info = require('systeminformation'),
 	chalk = require('chalk');
 
 const [,, configPath = './config.json'] = process.argv,
-	{ settings, parts } = JSON.parse(require('fs').readFileSync(configPath));
+	{ settings, parts } = require(configPath);
 
 const formatBytes = (bytes = 0, withGb) => {
 	const sizes = ['B', 'KB', 'MB', 'GB'];
@@ -18,7 +18,7 @@ const formatDuration = (duration) => {
 	if (duration.days() > 0) { components.push(`${duration.days()} days`); }
 	if (duration.days() > 0 || duration.hours() > 0) { components.push(`${duration.hours()} hours`); }
 	if (duration.days() > 0 || duration.hours() > 0 || duration.minutes() > 0) { components.push(`${duration.minutes()} minutes`); }
-	if (duration.days() == 0 && duration.hours() == 0) { components.push(`${duration.seconds()} seconds`); }
+	if (duration.days() === 0 && duration.hours() === 0) { components.push(`${duration.seconds()} seconds`); }
 	return components.join(', ');
 };
 
