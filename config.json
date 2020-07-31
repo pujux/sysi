@@ -1,14 +1,14 @@
 {
 	"settings": {
 		"seperator": "-",
-		"suffix": ":",
+		"suffix": "",
 		"title": true,
 		"titleColor": "#D2B198",
 		"primaryColor": "#D2B198",
 		"secondaryColor": "#D1BAAA",
 		"seperatorColor": "#D1BAAA",
 		"suffixColor": "#D2B198",
-		"seperatorLength": 50
+		"seperatorLength": 56
 	},
 	"parts": [ 
 		{
