@@ -14,7 +14,7 @@
   <h2>Installation:</h2>
   <code>npm install -g sysi</code>
 </div>
-
+<br>
 <div align="left">
   <h2>Configuration:</h2>
   sysi can be customized by editing the JSON configuration file located in the directory where sysi was installed in.
