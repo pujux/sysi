@@ -10,7 +10,7 @@
   <a href="https://badges.pufler.dev"><img src="https://badges.pufler.dev/visits/puf17640/sysi?label=visits"></a>
 </p>
 
-<div align="right">
+<div align="left">
   <h2>Installation:</h2>
   <code>npm install -g sysi</code>
 </div>
