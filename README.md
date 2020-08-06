@@ -10,12 +10,12 @@
   <a href="https://badges.pufler.dev"><img src="https://badges.pufler.dev/visits/puf17640/sysi?label=visits"></a>
 </p>
 
-<p align="left">
+<div align="left">
   <h2>Installation:</h2>
   <code>npm install -g sysi</code>
-</p>
+</div>
 
-<p align="right">
+<div align="right">
   <h2>Configuration:</h2>
   sysi can be customized by editing the JSON configuration file located in the directory where sysi was installed in.
   
@@ -116,4 +116,4 @@
       </ul>
     </li>
   </ul>
-</p>
+</div>
