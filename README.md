@@ -10,7 +10,110 @@
   <a href="https://badges.pufler.dev"><img src="https://badges.pufler.dev/visits/puf17640/sysi?label=visits"></a>
 </p>
 
-<h3 align="center">
-  This is a work-in-progress.<br/>
-  More info coming soon...
-</h3>
+<div align="left">
+  <h2>Installation:</h2>
+  <code>npm install -g sysi</code>
+</div>
+<br>
+<div align="left">
+  <h2>Configuration:</h2>
+  sysi can be customized by editing the JSON configuration file located in the directory where sysi was installed in.
+  
+  <h4>Main Settings</h4>
+  <ul>
+    <li>seperator - string</li>
+    <li>suffix - string</li>
+    <li>title - boolean</li>
+    <li>titleColor - string</li>
+    <li>primaryColor - string</li>
+    <li>secondaryColor - string</li>
+    <li>seperatorColor - string</li>
+    <li>suffixColor - string</li>
+    <li>seperatorLength - number</li>
+  </ul>
+  
+  <h4>Parts</h4>
+  All parts can be turned off by either removing them from the JSON configuration or by setting the "enabled" property to false.
+  <ul>
+    <li>os
+      <ul>
+        <li>enabled - boolean</li>
+        <li>version - boolean</li>
+        <li>arch - boolean</li>
+      </ul>
+    </li>
+    <li>cpu
+      <ul>
+        <li>enabled - boolean</li>
+        <li>cores - boolean</li>
+        <li>speed - boolean</li>
+        <li>temp - boolean</li>
+      </ul>
+    </li>
+    <li>uptime
+      <ul>
+        <li>enabled - boolean</li>
+      </ul>
+    </li>
+    <li>gpu
+      <ul>
+        <li>enabled - boolean</li>
+        <li>vram - boolean</li>
+      </ul>
+    </li>
+    <li>memory
+      <ul>
+        <li>enabled - boolean</li>
+        <li>percent - boolean</li>
+      </ul>
+    </li>
+    <li>display
+      <ul>
+        <li>enabled - boolean</li>
+        <li>mainOnly - boolean</li>
+      </ul>
+    </li>
+    <li>proc
+      <ul>
+        <li>enabled - boolean</li>
+      </ul>
+    </li>
+    <li>battery
+      <ul>
+        <li>enabled - boolean</li>
+        <li>timeRemaining - boolean</li>
+      </ul>
+    </li>
+    <li>ping
+      <ul>
+        <li>enabled - boolean</li>
+      </ul>
+    </li>
+    <li>publicIp
+      <ul>
+        <li>enabled - boolean</li>
+      </ul>
+    </li>
+    <li>net
+      <ul>
+        <li>enabled - boolean</li>
+        <li>noLocal - boolean</li>
+      </ul>
+    </li>
+    <li>shell
+      <ul>
+        <li>enabled - boolean</li>
+      </ul>
+    </li>
+    <li>users
+      <ul>
+        <li>enabled - boolean</li>
+      </ul>
+    </li>
+    <li>cpuLoad
+      <ul>
+        <li>enabled - boolean</li>
+      </ul>
+    </li>
+  </ul>
+</div>
