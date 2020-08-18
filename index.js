@@ -2,7 +2,7 @@
 const info = require('systeminformation'),
 	moment = require('moment'),
 	publicIp = require('public-ip'),
-	chalk = require('chalk'),;
+	chalk = require('chalk');
 
 const [,, configPath = './config.json'] = process.argv,
 	{ settings, parts } = require(configPath);
