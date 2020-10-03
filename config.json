@@ -41,7 +41,7 @@
 		{
 			"name": "display",
 			"enabled": true,
-			"mainOnly": true
+			"mainOnly": false
 		},
 		{
 			"name": "proc",
