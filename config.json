@@ -76,6 +76,10 @@
 		{
 			"name": "cpuLoad",
 			"enabled": true
+		},
+		{
+			"name": "storage",
+			"enabled": true
 		}
 	]
 }
