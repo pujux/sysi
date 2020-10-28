@@ -136,6 +136,15 @@ const formatDuration = (duration) => {
 					if (!data || !data.currentload || data.currentload < 0) break;
 					console.info(`${chalk.hex(settings.primaryColor)('CPU Load'.padEnd(15))}${data.currentload.toFixed(2)}%`);
 					break;
+
+				case 'storage':
+					if (!enabled) break;
+					data = await info.diskLayout();
+					if (!data || data.length < 1) break;
+					data.forEach((disk, i) => {
+						console.info(`${chalk.hex(settings.primaryColor)(`Disk ${++i}`.padEnd(15))}${disk.interfaceType} ${`${disk.type !== 'Unspecified' ? disk.type === 'HD' ? 'HDD' : disk.type : '???'} ${formatBytes(disk.size, true)}`.padEnd(15)}` + disk.name);
+					});
+					break;
 			}
 		} catch { }
 	})

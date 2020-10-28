@@ -41,7 +41,7 @@
 		{
 			"name": "display",
 			"enabled": true,
-			"mainOnly": true
+			"mainOnly": false
 		},
 		{
 			"name": "proc",
@@ -75,6 +75,10 @@
 		},
 		{
 			"name": "cpuLoad",
+			"enabled": true
+		},
+		{
+			"name": "storage",
 			"enabled": true
 		}
 	]
