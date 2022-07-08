@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 const info = require('systeminformation'),
 	moment = require('moment'),
-	publicIp = import('public-ip'),
 	chalk = require('chalk');
 
 const [,, configPath = './config.json'] = process.argv,
@@ -104,6 +103,7 @@ const formatDuration = (duration) => {
 
 				case 'publicIp':
 					if (!enabled) break;
+					publicIp = import('public-ip');
 					data = await publicIp.v4();
 					if (!data) break;
 					console.info(`${chalk.hex(settings.primaryColor)('Public IP'.padEnd(15))}${data}`);
