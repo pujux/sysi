@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 const info = require('systeminformation'),
 	moment = require('moment'),
-	publicIp = require('public-ip'),
 	chalk = require('chalk');
 
 const [,, configPath = './config.json'] = process.argv,
@@ -78,7 +77,10 @@ const formatDuration = (duration) => {
 					if (!enabled) break;
 					data = (await info.graphics()).displays;
 					if (!data || data.length === 0) break;
-					console.info(`${chalk.hex(settings.primaryColor)('Display'.padEnd(15))}${data.filter(dis => !args.mainOnly || dis.main).map(dis => `${dis.resolutionx}x${dis.resolutiony}`).join(', ')}`);
+					data.forEach((m, x) => {
+						data = data.filter(dis => !args.mainOnly || dis.main);
+						console.info(`${chalk.hex(settings.primaryColor)(`Display ${x + 1}`.padEnd(15))}${m.resolutionX}x${m.resolutionY}`)
+					});
 					break;
 
 				case 'proc':
@@ -104,6 +106,7 @@ const formatDuration = (duration) => {
 
 				case 'publicIp':
 					if (!enabled) break;
+					publicIp = import('public-ip');
 					data = await publicIp.v4();
 					if (!data) break;
 					console.info(`${chalk.hex(settings.primaryColor)('Public IP'.padEnd(15))}${data}`);
