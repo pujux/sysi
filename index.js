@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const info = require('systeminformation'),
 	moment = require('moment'),
-	publicIp = require('public-ip'),
+	publicIp = import('public-ip'),
 	chalk = require('chalk');
 
 const [,, configPath = './config.json'] = process.argv,
